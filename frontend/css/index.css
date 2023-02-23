@@ -10,8 +10,9 @@ nav{
     border-bottom: 1px solid;
     position: fixed;
     z-index: 100;
-    background-color: white;
-    background-color: rgba(222, 177, 222, 0.942);
+    /* background-color: rgba(222, 177, 222, 0.942); */
+    background-image: linear-gradient(50deg,rgba(222, 177, 222, 0.942),#ffeac2);
+    /* ffe7b8 */
 }
 .navMain{
     display: flex;
@@ -44,7 +45,7 @@ nav{
 }
 
 .navMain .searchBar{
-    width: 50%;
+    width: 56%;
     background-color: rgb(234, 234, 234);
     border: 1px solid rgb(9, 9, 9);
     border-radius: 30px;
@@ -68,10 +69,10 @@ nav{
 .navSignUp{
     display: flex;
     align-items: center;
-    width: 15%;
+    width: 7%;
     display: flex;
-    justify-content: space-between;
-    margin-right: 19px;
+    justify-content: space-around;
+    margin-right: 15px;
 }
 .navSignUp button{
     cursor: pointer;
@@ -82,4 +83,27 @@ nav{
     color: white;
     background-color: rgba(27, 27, 27, 0.952);
 }
+.navSignUp button:hover{
+    background-color: rgba(77, 77, 77, 0.989);
+    transition: .7s;
+}
 
+
+/* Nav End */
+
+
+/* Main Start */
+main{
+    background-image: linear-gradient(50deg,rgba(234, 201, 234, 0.942),#fceae1);
+}
+.banner{
+    padding-top: 69px;
+}
+.banner img{
+    width: 100%;
+}
+
+.fashionHighLight h3{
+    transform: rotate(-90deg);
+}
+/* transform: rotate(-90deg); */
