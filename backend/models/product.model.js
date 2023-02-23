@@ -7,7 +7,10 @@ const productSchema = mongoose.Schema({
         required:true
     },
     desc: String,
-    price: Number,
+    price: {
+        type:Number,
+        required:true
+    },
     brand:{
         type:String,
         required:true
