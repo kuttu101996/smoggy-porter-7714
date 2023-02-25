@@ -13,14 +13,14 @@ userRoute.post("/login", async(req,res)=>{
             bcrypt.compare(pass, user[0].pass, function(err, result) {
                 // result == true
                 if (result){
-                    const token = jwt.sign({userID: user[0]._id, name: user[0].name}, 'kuttu')
-                    res.send({"msg":"Login Successful"})
+                    const token = jwt.sign({userID: user[0]._id, name: user[0].name}, 'kuttu',{expiresIn:'1hr'})
+                    res.send({"msg":"Login Successful","token":token})
                 }
                 else{
                     res.send(err.message)
                 }
             });
-            res.send({"msg":"User already exist with this Email-ID"})
+            // res.send({"msg":"User already exist with this Email-ID"})
         }
         else {
             res.send({"msg":"Please Signup"})
