@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+html{
+    font-size: 14px;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background: #f6f6f9;
+    color: #5e6c7d;
+}
+.container{
+    display: grid;
+    grid-template-columns: 14rem auto 18rem;
+    gap: 1.8rem;
+    width: 96%;
+    margin: 0 auto;
+}
+
+a{
+    color: rgba(11, 11, 11, 0.915);
+}
+h1{
+    font-weight: 800;
+    font-size: 1.9rem;
+}
+h2{
+    font-size: 1.5rem;
+}
+h3{
+    font-size: 1.1rem;
+}
+h4{
+    font-size: .9rem;
+}
+.profile_pic{
+    overflow: hidden;
+    border-radius: 50%;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+.text_grey{
+    color: #7d8da1;
+}
+aside{
+    height: 100vh;
+    background-color: white;
+}
+aside.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+aside .logo img{
+    width: 5rem;
+    height: 3rem;
+}
+aside .close{
+    display: none;
+}
+aside .leftside{
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+    position: relative;
+    top:2rem;
+}
+aside h3{
+    font-weight: 500;
+}
+aside .leftside a{
+    display: flex;
+    margin-left: 1.5rem;
+    color: #7d8da1;
+    gap: 1.8rem;
+    align-items: center;
+    position: relative;
+    height: 3.5rem;
+    transition: all .3s ease;
+}
+aside .leftside a:last-child{
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+}
+aside .leftside a.active{
+    background: #d3d7fddf;
+    color: #7380ec;
+    margin-left: 0;
+}
+aside .leftside a.active:before{
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: #7380ec;
+}
+aside .leftside a:hover{
+    color: #7380ec;
+    margin-left: 2.4rem;
+    transition: all .3s ease;
+}
+aside .leftside a.active:hover{
+    margin-left: 0;
+}
+/* font-size: .77rem; */
+
+
+/* ========== MAIN ========== */
+main .date{
+    display: inline-block;
+    height: 2.2rem;
+    width: 11rem;
+    background: #d3d7fddf;
+    transition: all .8s ease;
+    padding: 0 .8rem;
+    border-radius: .4rem;
+    margin-top: 1rem;
+}
+main .date input[type="date"]{
+    background: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.1rem;
+}
+main .insights{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+main .insights > div{
+    background: white;
+    cursor: pointer;
+    padding: 1.9rem;
+    margin-top: 1.5rem;
+    border-radius: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all .3s ease;
+}
+main .insights > div:hover{
+    box-shadow: none;
+    transition: all .3s ease;
+    background: rgb(251, 240, 213);
+}
+main .insights > div span{
+    padding: .5rem;
+    border-radius: 50%;
+    background: #7380ec;
+    color: white;
+    font-size: 2rem;
+}
+main .insights > .canceledOrder span{
+    background-color: rgb(185, 113, 113);
+}
+main .insights > .todayOrder span{
+    background-color:darkolivegreen;
+}
+main .insights .insights_middle{
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;
+}
+main .insights .insights_middle h3{
+    font-size: 1.1rem;
+}
+main .insights small{
+    display: block;
+}
+.recent_order{
+    margin-top: 2rem;
+}
+.recent_order h2{
+    margin-bottom: 1.3rem;
+}
+#append_recent_orders{
+    background-color: white;
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+#append_recent_orders{
+    text-align: center;
+}
+#append_recent_orders th{
+    width: 22%;
+}
+#append_recent_orders th:first-child{
+    width: 32%;
+}

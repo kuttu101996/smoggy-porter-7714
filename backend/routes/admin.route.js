@@ -1,6 +1,7 @@
 const express = require("express")
 const {UserModel} = require("../models/user.model")
 const {ProductModel} = require("../models/product.model")
+const {CartModel} = require("../models/cart.model")
 
 const adminRouter = express.Router();
 
@@ -24,6 +25,16 @@ adminRouter.get("/allproduct", async(req,res)=>{
     }
 })
 
+adminRouter.get("/allcart", async(req,res)=>{
+    try{
+        const data = await CartModel.find()
+        res.send(data)
+    }
+    catch(err){
+        res.send({"msg":err})
+    }
+})
+
 adminRouter.post("/addproduct", async(req,res)=>{
     try{
         const adding = new ProductModel(req.body)
@@ -40,7 +51,7 @@ adminRouter.post("/addmanyPro", async(req,res)=>{
         await ProductModel.insertMany(req.body)
         res.send({"msg":"Success"})
     }catch(err){
-
+        res.send({"msg":err})
     }
 })
 

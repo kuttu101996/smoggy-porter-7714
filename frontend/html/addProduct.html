@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <div>
+        <div><label>Name </label><input type="text" id="name" required></div>
+        <div><label>Description </label><input type="text" id="desc" required></div>
+        <div><label>Price </label><input type="text" id="price" required></div>
+        <div><label>Brand </label><input type="text" id="brand" required></div>
+        <div><label>Image </label><input type="file" id="image" accept=".jpeg"></div>
+        <div>
+            <!-- To catch a radio data catch it by the value of name then theck if .checked then the value is what we were looking for -->
+            <label>Catagory </label>
+            <input type="radio" name="catag" value="women" required> Women
+            <input type="radio" name="catag" value="men" required> Men
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </div>
+</body>
+</html>

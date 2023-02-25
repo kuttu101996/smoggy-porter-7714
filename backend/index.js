@@ -4,7 +4,8 @@ require("dotenv").config();
 const {connection} = require("./db");
 const {ProductModel} = require("./models/product.model")
 const {userRoute} = require("./routes/user.route")
-// const {cartRoute} = require("./routes/cart.route")
+const {cartRoute} = require("./routes/cart.route")
+const {authentication} = require("./middlewares/authentication")
 const {productRoute} = require("./routes/product.route")
 const {adminRouter} = require("./routes/admin.route")
 
@@ -15,12 +16,6 @@ app.use(express.json())
 
 app.get("/", async(req,res)=>{
     res.send({"msg":"HELLO"})
-    // try{
-    //     const data = await ProductModel.find()
-    //     res.send(data)
-    // }catch(err){
-    //     res.send({"message":"Unable to get the data from Database"})
-    // }
 })
 
 app.post("/search", async(req,res)=>{
@@ -37,8 +32,10 @@ app.post("/search", async(req,res)=>{
 app.use("/user", userRoute)
 app.use("/product", productRoute)
 app.use("/admin", adminRouter)
-// app.use("/cart", cartRoute)
 
+
+app.use(authentication)
+app.use("./cart",cartRoute)
 
 
 
