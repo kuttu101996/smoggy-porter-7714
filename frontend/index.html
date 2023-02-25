@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/extra.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -14,7 +15,85 @@
     />
     <title>WiGi</title>
   </head>
-  <body>
+  <body id="body">
+    <div id="full_login_page">
+      <div id="login_page">
+        <div id="login_page_logo">
+          <div>
+            <span>WiGi</span>
+            <p>Hi There!</p>
+            <!-- <img
+              id="im_1"
+              src="https://assets.pharmeasy.in/web-assets/dist/fca22bc9.png?dim=256x0"
+              alt=""
+            /> -->
+          </div>
+          <div>
+            <svg
+              id="closeBtn"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="c-cZuCZG c-cZuCZG-hNOgxQ-size-medium c-cZuCZG-dmsdwv-rotate-up c-cZuCZG-ifKWriV-css"
+            >
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div id="login_page_last">
+          <h1>Login</h1>
+          <input
+            id="logInInput"
+            type="text"
+            placeholder="Email-ID"
+          />
+          <input type="password" placeholder="Password">
+          <button id="sendOtp" onclick="">Log IN</button>
+          <p>
+            <a href="#">Forget Password</a>
+          </p>
+          <div class="orFl">
+            <div></div>
+            <span>OR</span>
+            <div></div>
+          </div>
+          <button id="signUpBtn">Sign UP</button>
+        </div>
+      </div>
+    </div>
+    <div id="full_signup_page">
+      <div id="signup_page">
+        <div class="signupBnnr">
+          <div class="signuplogo"></div>
+          <div id="closeBtn_2">
+            <svg
+              id="closeBtn"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="c-cZuCZG c-cZuCZG-hNOgxQ-size-medium c-cZuCZG-dmsdwv-rotate-up c-cZuCZG-ifKWriV-css"
+            >
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="signup">
+          <h1>SIGN UP</h1>
+          <div class="signup">
+            <input class="inputs" id="name" type="text" placeholder="Full Name"  required>
+            <input class="inputs" id="email" type="email" placeholder="Email-ID" required>
+            <input class="inputs" id="password" type="password" placeholder="Password" name="" id="" required>
+            <input class="inputs" id="dob" type="date" name="" id="">
+            <input class="inputs" id="phnum" type="number" placeholder="Mobile Number">
+            <input class="inputs" id="submit" type="submit">
+          </div>
+        </div>
+      </div>
+    </div>
     <nav>
       <div class="navMain">
         <div class="logoOuterDiv">
@@ -23,26 +102,28 @@
           </div>
         </div>
         <div class="navCategory">
-          <div id="navCategory_1"><a href="">WOMEN</a></div>
-          <div id="navCategory_2"><a href="">MEN</a></div>
+          <div id="navCategory_1"><p id="wDrop_btn">WOMEN</p></div>
+          <div id="navCategory_2"><p id="mDrop_btn">MEN</p></div>
         </div>
         <div class="searchBar">
           <div>
             <input
+              id="searching"
               type="search"
+              onkeyup="sendData(this)"
               autocomplete="off"
               placeholder="Search your desire"
             />
           </div>
           <div>
-            <button type="submit">
+            <button onclick="data()" type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
         </div>
         <div class="navSignUp">
           <!-- <div> -->
-            <button class="log&sign" id="login">Log in</button>
+          <button class="log&sign" id="login">Log in</button>
           <!-- </div> -->
           <!-- <div>
             <button class="log&sign" id="signup">Sign up</button>
@@ -50,47 +131,46 @@
         </div>
       </div>
     </nav>
-    <!-- <div class="WomenDrop">
-        <div>
-            <a href="">All Clothing</a>
-            <a href="">Beachwear and swimwear outfits</a>
-            <a href="">Coats</a>
-            <a href="">Dresses</a>
-            <a href="">Hosiery</a>
-            <a href="">Jackets</a>
-            <a href="">Jeans</a>
-            <a href="">Jumpsuits and rompers</a>
-            <a href="">Sweaters and knitwear</a>
-            <a href="">Nightwear and sleepwear</a>
-        </div>
-        <div></div>
+    <div id="searchDisplay" class="searchResult"></div>
+    <div id="wDrop" class="womenDrop">
+      <div class="womenDrop_1">
+        <a href="">All Clothing</a>
+        <a href="">Beachwear and swimwear outfits</a>
+        <a href="">Coats</a>
+        <a href="">Dresses</a>
+        <a href="">Hosiery</a>
+        <a href="">Jackets</a>
+        <a href="">Jeans</a>
+        <a href="">Jumpsuits and rompers</a>
+        <a href="">Sweaters and knitwear</a>
+        <a href="">Nightwear and sleepwear</a>
+      </div>
+      <div class="womenDrop_2"></div>
     </div>
-    <div class="MenDrop">
-        <div>
-            <a href="">All Clothing</a>
-            <a href="">Beachwear</a>
-            <a href="">Coats</a>
-            <a href="">Jackets</a>
-            <a href="">Jeans</a>
-            <a href="">Shirts</a>
-            <a href="">Activewear, gym and workout clothes</a>
-            <a href="">T-shirts</a>
-            <a href="">Underwear</a>
-            <a href="">Clothing on Sale</a>
-        </div>
-        <div></div>
-    </div> -->
-    
-
+    <div id="mDrop" class="womenDrop">
+      <div class="womenDrop_1">
+        <a href="">All Clothing</a>
+        <a href="">Beachwear</a>
+        <a href="">Coats</a>
+        <a href="">Jackets</a>
+        <a href="">Jeans</a>
+        <a href="">Shirts</a>
+        <a href="">Activewear, gym and workout clothes</a>
+        <a href="">T-shirts</a>
+        <a href="">Underwear</a>
+        <a href="">Clothing on Sale</a>
+      </div>
+      <div class="womenDrop_2"></div>
+    </div>
 
     <!-- Main Start -->
     <main>
-        <div class="banner">
-          <img
-            src="https://cdna.lystit.com/cms/EN_Default_460f2da2ac.png"
-            alt=""
-          />
-        </div>
+      <div class="banner">
+        <img
+          src="https://cdna.lystit.com/cms/EN_Default_460f2da2ac.png"
+          alt=""
+        />
+      </div>
 
       <!-- <div class="outSticky">
         <div class="frsticky"></div>
@@ -105,83 +185,620 @@
         </div>
         <div class="frsticky"></div>
       </div> -->
-      
+
       <div class="fashionHighLight">
         <div class="fashionHighLight_1">
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/NY_2_1_1c48a8c2e8.jpg" alt="">
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/LDN_M_3d58cc7dad.jpg" alt="">
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/NY_2_1_1c48a8c2e8.jpg"
+              alt=""
+            />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/M2_1_0cc1f7aeb8.jpg" alt="">
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/LDN_M_3d58cc7dad.jpg"
+              alt=""
+            />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/P2_1_d2ab77afa6.jpg" alt="">
+            <div></div>
+            <img src="https://cdna.lystit.com/cms/M2_1_0cc1f7aeb8.jpg" alt="" />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/Lyst_Top_Lyst_600x600_fdf139ed79.jpg" alt="">
+            <div></div>
+            <img src="https://cdna.lystit.com/cms/P2_1_d2ab77afa6.jpg" alt="" />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/Lyst_Top_Lyst_600x600_fdf139ed79.jpg"
+              alt=""
+            />
+          </div>
         </div>
         <div class="fashionHighLight_2">
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/600x600_Affiliate_Prada_Holiday_BU_1_1_e41fdd0245.jpg" alt="">
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/hh_3_12_1_4e0197f0fa.jpg" alt="">
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/600x600_Affiliate_Prada_Holiday_BU_1_1_e41fdd0245.jpg"
+              alt=""
+            />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/HP_Top_Lyst_1_3be80201f9.jpg" alt="">
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/hh_3_12_1_4e0197f0fa.jpg"
+              alt=""
+            />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/2022_09_06_Miu_Miu_Holiday_London_01_7116_20_KG_F15_1080x1080_copia_a19e5d5e18.jpg" alt="">
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/HP_Top_Lyst_1_3be80201f9.jpg"
+              alt=""
+            />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
-            <div class="fashionHighLight_cards">
-                <div class="fashionHighLight_text">
-                    <h3>FASHION WEEK HIGHLIGHTS</h3>
-                </div>
-                <div></div>
-                <img src="https://cdna.lystit.com/cms/DUNHILL_WINTER_MARKDOWN_2022_1x1_600x600px_4f7aecf25b.jpg" alt="">
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/2022_09_06_Miu_Miu_Holiday_London_01_7116_20_KG_F15_1080x1080_copia_a19e5d5e18.jpg"
+              alt=""
+            />
+          </div>
+          <div class="fashionHighLight_cards">
+            <div class="fashionHighLight_text">
+              <h3>FASHION WEEK HIGHLIGHTS</h3>
             </div>
+            <div></div>
+            <img
+              src="https://cdna.lystit.com/cms/DUNHILL_WINTER_MARKDOWN_2022_1x1_600x600px_4f7aecf25b.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
+
+      <div id="frBrands">
+        <div class="breakoutBrand">
+          <h1>BREAKOUT BRANDS</h1>
+          <div class="brandsInner">
+            <div class="breakoutBrand_cards">
+              <div><p>BALENCIAGA</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/balenciaga_b4eec10d67.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>VIVIENNE WESTWOOD</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/vivienne_westwood_f7d712c58e.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>HOKA ONE ONE</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/hoka_one_one_7c61e26c5a.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>BURBERRY</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/burberry_6d39746bc8.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>FENDI</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/fendi_cb9b2391df.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>ALEXANDER MCQUEEN</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/alexander_mcqueen_baedc5140b.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>GOLDEN GOOSE</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/golden_goose_59e4b8afbb.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MARC JACOBS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/marc_jacobs_29e9988630.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="trendingNow">
+          <h1>TRENDING NOW</h1>
+          <div class="brandsInner">
+            <div class="breakoutBrand_cards">
+              <div><p>GUCCI SCARVES</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/gucci_scarf_fe36f0efcf.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>CANADA GOOSE JACKETS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/canada_goose_jacket_8ef1b21a01.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MOU BOOTS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/mou_boots_b752d8b2d3.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>COACH BOOTS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/coach_boots_501890e9f6.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MONCLER JACKETS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/moncler_jacket_2d491a95dc.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>GUCCI WALLETS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/gucci_wallet_efb3e00367.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MACKAGE COATS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/mackage_coat_c28797a0bf.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>FERRAGAMO BELTS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/ferragamo_belt_6f771dc38c.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hotNow">
+          <h1>HOT RIGHT NOW</h1>
+          <div class="brandsInner hot">
+            <div class="breakoutBrand_cards hotCard">
+              <div><p>GUCCI BOOTS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/gucci_boots_b1ff8d0345.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>PRADA BOOTS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/prada_boots_6233e75fa8.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>BURBERRY SHIRTS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/burberry_shirt_bfcb721a9f.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>ACNE STUDIOS SCARVES</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/acne_scarf_962909ccdd.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MUGLER JEANS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/mugler_jeans_23663c939e.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>TORY BURCH</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/tory_burch_c2694d7614.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MONCLER</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/moncler_jacket_2d491a95dc.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="breakoutBrand_cards">
+              <div><p>MARC JACOBS</p></div>
+              <div>
+                <img
+                  src="https://cdna.lystit.com/cms/marc_jacobs_29e9988630.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insights">
+        <div class="insight_lhs">
+          <div class="in_lhs">
+            <div class="insightNum">
+              <h1 class="num_1">1</h1>
+            </div>
+            <div class="insightHeads"><h2>THE BIGGEST SELECTION</h2></div>
+            <div class="insight_p">
+              <p>Shop over 12,000 brands and stores in one place.</p>
+            </div>
+            <div class="insight_p">
+              <p>
+                Find exactly what you want with powerful search and personal
+                recommendations.
+              </p>
+            </div>
+          </div>
+          <div class="in_lhs">
+            <div class="insightNum">
+              <h1>2</h1>
+            </div>
+            <div class="insightHeads">
+              <h2>THE HOTTEST PRODUCTS</h2>
+            </div>
+            <div class="insight_p">
+              <p>See what’s new and what’s trending.</p>
+            </div>
+            <div class="insight_p">
+              <p>
+                Hit the heart to receive alerts on the latest drops from your
+                favourite brands.
+              </p>
+            </div>
+          </div>
+          <div class="in_lhs">
+            <div class="insightNum">
+              <h1>3</h1>
+            </div>
+            <div class="insightHeads">
+              <h2>THE BEST PRICES</h2>
+            </div>
+            <div class="insight_p">
+              <p>
+                Compare prices and shipping options across thousands of stores.
+              </p>
+            </div>
+            <div class="insight_p">
+              <p>Lyst members are notified when an item goes on sale.</p>
+            </div>
+          </div>
+        </div>
+        <div class="insight_rhs">
+          <div class="in_rhs">
+            <h1>SIGN UP FOR SMARTER SHOPPING</h1>
+            <button class="join">Join</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mostWanted">
+        <div class="rotate_heads">
+          <p>MOST WANTED</p>
+        </div>
+        <div>
+          <div class="mostWanted_sub">
+            <div class="mostWanted_cards"><p>LEOPARD-PRINT COATS</p></div>
+            <div class="mostWanted_cards">
+              <p>LUGGED LEATHER CHUCK TAYLOR ALL STAR</p>
+            </div>
+            <div class="mostWanted_cards"><p>CATO SKIRTS</p></div>
+            <div class="mostWanted_cards"><p>TORY BURCH FLEMING BAGS</p></div>
+            <div class="mostWanted_cards">
+              <p>LACE UP HEELED ANKLE BOOTS</p>
+            </div>
+          </div>
+          <div class="mostWanted_sub">
+            <div class="mostWanted_cards"><p>NIKE METCON</p></div>
+            <div class="mostWanted_cards"><p>RICK OWENS GEOBASKET</p></div>
+            <div class="mostWanted_cards"><p>BUNNY NECKLACES</p></div>
+            <div class="mostWanted_cards"><p>NIKE SB DUNK SNEAKERS</p></div>
+            <div class="mostWanted_cards">
+              <p>NIKE AIR FORCE 1 LOW SNEAKERS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="newOn">
+        <div class="newOn_head"><h3>NEW ON WiGi</h3></div>
+        <div class="newOn_all">
+          <!-- Remove all insider and append data from backend here CSS already writen -->
+          <div class="newOn_product_cards">
+            <div class="newOn_img">
+              <img
+                src="https://cdna.lystit.com/200/250/tr/photos/farfetch/d5f03b93/thom-browne-grey-Grosgrain-trim-Wool-V-neck-Cardigan.jpeg"
+                alt=""
+              />
+            </div>
+            <p class="newOn_title">Thom Browne</p>
+            <p class="newOn_desc">
+              Men's Gray Grosgrain-trim Wool V-neck Cardigan Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Molestiae aliquid incidunt,
+              qui nemo, distinctio corporis officia possimus, error sequi
+              praesentium minus! Cumque quos eveniet commodi mollitia itaque.
+              Quam, mollitia consectetur?
+            </p>
+            <div class="price_brand">
+              <h4 class="newOn_price"><span class="dollar">$</span>1,325</h4>
+              <p class="newOn_brandName">Eleonora Bonucci</p>
+            </div>
+            <div class="btnDiv">
+              <button id="addCartBtn" class="addCart">Add To Cart</button>
+            </div>
+          </div>
+          <!-- Remove all insider and append data from backend here CSS already writen -->
+          <div class="newOn_product_cards">
+            <div class="newOn_img">
+              <img
+                src="https://cdna.lystit.com/200/250/tr/photos/farfetch/d5f03b93/thom-browne-grey-Grosgrain-trim-Wool-V-neck-Cardigan.jpeg"
+                alt=""
+              />
+            </div>
+            <p class="newOn_title">Thom Browne</p>
+            <p class="newOn_desc">
+              Men's Gray Grosgrain-trim Wool V-neck Cardigan Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Molestiae aliquid incidunt,
+              qui nemo, distinctio corporis officia possimus, error sequi
+              praesentium minus! Cumque quos eveniet commodi mollitia itaque.
+              Quam, mollitia consectetur?
+            </p>
+            <div class="price_brand">
+              <h4 class="newOn_price"><span class="dollar">$</span>1,325</h4>
+              <p class="newOn_brandName">Eleonora Bonucci</p>
+            </div>
+            <div class="btnDiv">
+              <button id="addCartBtn" class="addCart">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="allCatag">
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+        <div class="catagCards">
+          <div class="catag_in_lhs rotate_heads"><p>WOMEN'S CLOTHING</p></div>
+          <div class="catag_in_rhs">
+            <a href="">Skirts</a>
+            <a href="">Beachwear</a>
+            <a href="">Activewear, gym and workout clothes</a>
+            <a href="">Earrings and ear cuffs</a>
+            <a href="">Coats</a>
+            <a href="">Underwear</a>
+            <a href="">Jackets</a>
+            <a href="">Rings</a>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer_lhs">
+          <div class="footer_lhs_none">
+            <div class="heads"><span >INTERNATIONAL</span><span>+</span></div>
+            <div class="heads"><span>HELP AND INFO</span><span>+</span></div>
+          </div>
+        </div>
+        <div class="ftr">
+          <div class="footer_rhs">
+            <span class="footer_rhs_head">INTERNATIONAL</span>
+            <p>Lyst - AU</p>
+            <p>Lyst - Nederland</p>
+            <p>Lyst - 日本</p>
+            <p>Lyst - België</p>
+            <p>Lyst - Italia</p>
+            <p>Lyst - España</p>
+            <p>Lyst - Schweiz</p>
+            <p>Lyst - Deutschland</p>
+            <p>Lyst - Österreich</p>
+            <p>Lyst - UK</p>
+          </div>
+          <div class="footer_rhs">
+            <!-- Lyst News -->
+            <span class="footer_rhs_head">HELP AND INFO</span>
+            <p>Help center</p>
+            <p>About us</p>
+            <p>Shipping policy</p>
+            <p>Returns policy</p>
+            <p>Payments</p>
+            <p>Refund policy</p>
+            <p>Developers</p>
+            <p>Careers</p>
+            <p>Contact</p>
+            <p>Terms & conditions</p>
+            <p>Privacy & cookie policy</p>
+            <p>Intellectual property</p>
+            <p>Categories</p>
+            <p>Become a partner</p>
+            <p>Lyst Insights</p>
+          </div>
+        </div>
+      </footer>
     </main>
   </body>
+  <script src="./script/index.js"></script>
 </html>

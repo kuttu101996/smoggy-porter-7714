@@ -15,7 +15,6 @@ const productSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    users: [String],
     addedAt:{
         type: Date,
         default: Date.now()
